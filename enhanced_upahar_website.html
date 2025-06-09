@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upahar.np - A Gift from the Heart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Dancing+Script:wght@400;500;600;700&family=Abril+Fatface&family=Comfortaa:wght@300;400;500;600;700&family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Comfortaa', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #a8edea 75%, #fed6e3 100%);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #a8edea 75%, #fed6e3 100%);
+    }
+
+    .bg-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 20%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 40%, rgba(173, 216, 230, 0.2) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(1deg); }
+    }
+
+    /* Header Enhancements */
+    header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(25px);
+      padding: 5rem 2rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255, 182, 193, 0.2), rgba(173, 216, 230, 0.2), rgba(255, 192, 203, 0.2));
+      z-index: -1;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    header h1 {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+      animation: gradientShift 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+      to { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+    }
+
+    header p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      font-weight: 600;
+      opacity: 0.95;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1s ease-out 0.5s both;
+      color: #2d3748;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+      font-style: italic;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Enhanced Navigation */
+    .nav-pills {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-pill {
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50px;
+      color: #2d3748;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Comfortaa', sans-serif;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(15px);
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-pill:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: gradientShift 8s ease-in-out infinite, textFloat 4s ease-in-out infinite;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+      border-radius: 2px;
+      animation: gradientShift 6s ease-in-out infinite;
+    }
+
+    @keyframes textFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Enhanced Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .product {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .product:hover::before {
+      left: 100%;
+    }
+
+    .product:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .product-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    .product h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      background: linear-gradient(45deg, #e74c3c, #f39c12, #e67e22, #d35400);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .product p {
+      color: #4a5568;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .price {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a6f, #e74c3c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 1.5rem 0;
+      padding: 0.8rem 1.5rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      display: inline-block;
+      border: 2px solid rgba(255, 107, 107, 0.3);
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+    }
+
+    .order-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1.2rem 2.5rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+      background-size: 200% 200%;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      font-family: 'Fredoka', sans-serif;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    .order-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #4ecdc4, #45b7d1, #96ceb4);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+
+    .order-btn:hover::before {
+      left: 0;
+    }
+
+    .order-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+      animation-play-state: paused;
+    }
+
+    /* Enhanced Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .popup-content {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 3rem;
+      max-width: 500px;
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.8) translateY(50px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .popup-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #2d3748;
+      line-height: 1.6;
+    }
+
+    .popup-content button {
+      padding: 1.2rem 3rem;
+      border: none;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+      background-size: 200% 200%;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Fredoka', sans-serif;
+      transition: all 0.4s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: gradientShift 4s ease-in-out infinite;
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    }
+
+    .popup-content button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+      animation-play-state: paused;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #feca57);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.5px;
+    }
+
+    .feature p {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Enhanced Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      color: rgba(255, 255, 255, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1rem;
+      }
+      
+      main {
+        padding: 2rem 1rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .nav-pills {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .popup-content {
+        margin: 1rem;
+        padding: 2rem;
+      }
+    }
+
+    /* Loading Animation */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fecfef 50%, #a8edea 75%, #fed6e3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      transition: opacity 0.5s ease;
+    }
+
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading" id="loading">
+    <div class="loader"></div>
+  </div>
+
+  <div class="bg-animation"></div>
+
+  <div class="popup" id="welcomePopup">
+    <div class="popup-content">
+      <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">💝</span>
+      <p>Choose Upahar to gift your loved ones and yourself — a token of love from the heart ❤️</p>
+      <button onclick="closePopup()">Continue to Magic</button>
+    </div>
+  </div>
+
+  <header>
+    <h1>Upahar.np</h1>
+    <p>Crafting memories into heartfelt gifts</p>
+    <div class="nav-pills">
+      <a href="#products" class="nav-pill">Our Products</a>
+      <a href="#features" class="nav-pill">Why Choose Us</a>
+      <a href="#contact" class="nav-pill">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="products">
+      <h2 class="section-title">Our Heartfelt Collection</h2>
+      <div class="products-grid">
+        <div class="product">
+          <span class="product-icon">📸</span>
+          <h2>Vintage Polaroids</h2>
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Polaroid Box" class="product-image">
+          <p>Vintage-style polaroids presented in a nostalgic keepsake box with a handwritten note. Each photo tells a story, preserved in time.</p>
+          <div class="price">Rs. 50 per piece</div>
+          <a class="order-btn" href="https://wa.me/97798XXXXXXXX?text=I%20want%20to%20order%20Polaroids%20from%20Upahar.np" target="_blank">Order Now</a>
+        </div>
+
+        <div class="product">
+          <span class="product-icon">🎨</span>
+          <h2>Custom Sketch Art</h2>
+          <img src="https://images.unsplash.com/photo-1597764692288-0963f1da7a9c" alt="Sketch Paper" class="product-image">
+          <p>Detailed hand-drawn sketch on premium textured paper, professionally framed and accompanied by a heartfelt personalized note.</p>
+          <div class="price">Rs. 1500 (framed with note)</div>
+          <a class="order-btn" href="https://wa.me/97798XXXXXXXX?text=I%20want%20to%20order%20a%20Sketch%20from%20Upahar.np" target="_blank">Order Now</a>
+        </div>
+
+        <div class="product">
+          <span class="product-icon">💐</span>
+          <h2>Premium Bouquets</h2>
+          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" alt="Bouquet Box" class="product-image">
+          <p>Fresh and fragrant flowers arranged in an elegant floral box. Perfect for expressing every emotion with natural beauty.</p>
+          <div class="price">Contact for pricing</div>
+          <a class="order-btn" href="https://instagram.com/yourusername" target="_blank">Order Now</a>
+        </div>
+
+        <div class="product">
+          <span class="product-icon">🎁</span>
+          <h2>Curated Gift Combos</h2>
+          <img src="https://images.unsplash.com/photo-1514412076815-bc4221236e58" alt="Combo Gift Box" class="product-image">
+          <p>A curated gift box of love — polaroids, sketches, and blooms bundled together for maximum heartfelt impact.</p>
+          <div class="price">Custom pricing available</div>
+          <a class="order-btn" href="https://instagram.com/yourusername" target="_blank">Order Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2 class="section-title">Why Choose Upahar?</h2>
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">❤️</span>
+          <h3>Made with Love</h3>
+          <p>Every item is crafted with personal attention and genuine care for your special moments.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🇳🇵</span>
+          <h3>Proudly Nepali</h3>
+          <p>Supporting local artisans and celebrating the rich creative culture of Nepal.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🚚</span>
+          <h3>Fast Delivery</h3>
+          <p>Quick and reliable delivery across Nepal to ensure your gifts arrive on time.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">✨</span>
+          <h3>Personalized Touch</h3>
+          <p>Each gift is customized to reflect your unique relationship and special memories.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://wa.me/97798XXXXXXXX" class="social-link" target="_blank">📱</a>
+        <a href="https://instagram.com/yourusername" class="social-link" target="_blank">📷</a>
+        <a href="mailto:info@upahar.np" class="social-link" target="_blank">✉️</a>
+      </div>
+      <p>&copy; 2025 Upahar.np | Made with love in Nepal ❤️</p>
+      <p style="margin-top: 1rem; opacity: 0.7;">Spreading joy, one gift at a time</p>
+    </div>
+  </footer>
+
+  <script>
+    // Loading animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('loading').classList.add('hidden');
+      }, 1000);
+    });
+
+    // Close popup function
+    function closePopup() {
+      const popup = document.getElementById('welcomePopup');
+      popup.style.animation = 'fadeOut 0.5s ease-out';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 500);
+    }
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.15)';
+        header.style.backdropFilter = 'blur(25px)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.1)';
+        header.style.backdropFilter = 'blur(20px)';
+      }
+    });
+
+    // Add entrance animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all products and features
+    document.querySelectorAll('.product, .feature').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      observer.observe(el);
+    });
+
+    // Add fadeOut animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
